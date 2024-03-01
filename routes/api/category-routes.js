@@ -20,7 +20,7 @@ router.get('/:id', async (req, res) => {
   try {
     const categoryData = await Category.findByPk(req.params.id, {
       // JOIN with categories, using the product through table
-      include: [{ model: Category, through: Product, as: 'category_products' }]
+      include: [{ model: Product }]
     });
 
     if (!categoryData) {
